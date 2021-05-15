@@ -21,6 +21,7 @@ As seguintes tecnologias foram utilizadas na construção do projeto:
  - **[Flutter](https://flutter.dev/)**
  - **[Cupertino Icons](https://pub.dev/packages/cupertino_icons)**
  - **[Google Fonts](https://pub.dev/packages/google_fonts)**
+ - **[Flutter Svg ](https://pub.dev/packages/flutter_svg)**
 
 > Veja o arquivo  **[pubspec.yaml](https://github.com/Brendhon/SearchFacul_App/blob/main/pubspec.yaml)**
 
@@ -30,6 +31,11 @@ As seguintes tecnologias foram utilizadas na construção do projeto:
 
 ## 🎨 Layout
 
+<p align="center" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+    <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+      <img alt="Home" style="margin-right: 10px"src="assets\screenshots\splash.png" width="150px">
+    </p>
+</p>
 
 ---
 
