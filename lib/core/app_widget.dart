@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:search_facul/result/result_page.dart';
+import 'package:search_facul/home/home_page.dart';
+// import 'package:search_facul/result/result_page.dart';
 // import 'package:search_facul/splash/splash_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -7,7 +8,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Search Facul",
-      home: ResultPage(),
+      home: HomePage(),
     );
   }
 }

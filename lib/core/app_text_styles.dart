@@ -23,7 +23,7 @@ class AppTextStyles {
   );
 
   static final TextStyle heading40 = GoogleFonts.notoSans(
-    color: AppColors.black,
+    color: Colors.black,
     fontSize: 40,
     fontWeight: FontWeight.w600,
   );
@@ -90,9 +90,19 @@ class AppTextStyles {
     fontSize: 20,
     fontWeight: FontWeight.normal,
   );
+  static final TextStyle bodyWhite15 = GoogleFonts.notoSans(
+    color: AppColors.white,
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+  );
   static final TextStyle body11 = GoogleFonts.notoSans(
     color: AppColors.grey,
     fontSize: 11,
+    fontWeight: FontWeight.normal,
+  );
+  static final TextStyle body20 = GoogleFonts.notoSans(
+    color: AppColors.grey,
+    fontSize: 20,
     fontWeight: FontWeight.normal,
   );
 }
