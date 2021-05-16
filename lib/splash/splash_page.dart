@@ -23,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
-    Timer.periodic(time, (Timer t) => run());
+    if (mounted) Timer.periodic(time, (Timer t) => run());
     super.initState();
   }
 

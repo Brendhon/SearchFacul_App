@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   static final Color primary = Color(0xFF00A5D8);
   static final Color secondary = Color(0xFF4b86b4);
-  static final Color backPrimary = Color(0xFF2E333E);
+  static final Color backPrimary = Color(0xFFD7E4E6);
+  static final Color backSecondary = Color(0xFFe3f0f2);
   static final Color purple = Color(0xFF8257E5);
   static final Color white = Color(0xFFFFFFFF);
   static final Color black = Color(0xFF514766);
@@ -12,6 +13,12 @@ class AppColors {
   static final Color border = Color(0xFFE1E1E6);
   static final Color chartSecondary = Color(0xFFE1E6E3);
   static final Color chartPrimary = darkGreen;
+
+  // Blue
+  static final Color blue = Color(0xFFf2fcfe);
+  static final Color lightBlue = Color(0xFF6dd5ed);
+  static final Color borderBlue = Color(0xFFEBF9FF);
+  static final Color darkBlue = Color(0xFF2193b0);
 
   //Greens
   static final Color lightGreen = Color(0xFFE1F5EC);

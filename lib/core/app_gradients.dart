@@ -2,11 +2,12 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:search_facul/core/app_colors.dart';
 
 class AppGradients {
   static final linear = LinearGradient(colors: [
-    Color(0xFF2193b0),
-    Color(0xFF6dd5ed),
+    AppColors.darkBlue,
+    AppColors.lightBlue,
   ], stops: [
     0.0,
     0.695

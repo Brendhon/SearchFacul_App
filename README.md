@@ -37,7 +37,8 @@ As seguintes tecnologias foram utilizadas na construção do projeto:
 
 <p align="center" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
     <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-      <img alt="Home" style="margin-right: 10px"src="assets\screenshots\splash.png" width="150px">
+      <img alt="Splash" style="margin-right: 10px"src="assets\screenshots\splash.png" width="150px">
+      <img alt="Result" style="margin-right: 10px"src="assets\screenshots\result.png" width="150px">
     </p>
 </p>
 
