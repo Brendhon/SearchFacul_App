@@ -3,13 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:search_facul/details/widgets/appbar/app_bar_widget.dart';
 import 'package:search_facul/details/widgets/detail/detail_widget.dart';
 import 'package:search_facul/core/core.dart';
+// import 'package:url_launcher/url_launcher.dart';
+
+// _launchURL() async {
+//   const url = 'https://flutter.io';
+//   if (await canLaunch(url)) {
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
 
 class DetailsPage extends StatelessWidget {
   // Atributos
   final double iconSize = 25;
   final Color iconColor = AppColors.secondary;
   final double boxShadowOpacity = 0.3;
-  
+
   // Métodos
   @override
   Widget build(BuildContext context) {
@@ -132,14 +142,14 @@ class DetailsPage extends StatelessWidget {
                           height: 10,
                         ),
                         DetailWidget(
-                          title: 'inatel@inatel.com',
-                          // content: 'inatel@inatel.com',
+                          title: 'Email',
+                          content: 'inatel@inatel.com',
                           icon: Icon(Icons.mail,
                               size: iconSize, color: iconColor),
                         ),
                         DetailWidget(
-                          title: '35998518745',
-                          // content: '35998518745',
+                          title: 'Telefone',
+                          content: '3534719200',
                           icon: Icon(Icons.phone,
                               size: iconSize, color: iconColor),
                         ),
@@ -156,12 +166,16 @@ class DetailsPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 18),
-              DetailWidget(
-                title: 'Site oficial',
-                content: 'https://inatel.br/home/',
-                icon: Icon(Icons.web, size: iconSize, color: iconColor),
-              ),
-              SizedBox(height: 18),
+              // RaisedButton(
+              //   onPressed: _launchURL,
+              //   child: new Text('Show Flutter homepage'),
+              // ),
+              // DetailWidget(
+              //   title: 'Site oficial',
+              //   content: 'https://inatel.br/home/',
+              //   icon: Icon(Icons.web, size: iconSize, color: iconColor),
+              // ),
+              // SizedBox(height: 18),
             ],
           ),
         ));

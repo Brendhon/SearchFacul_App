@@ -40,6 +40,7 @@ As seguintes tecnologias foram utilizadas na construção do projeto:
       <img alt="Splash" style="margin-right: 10px"src="assets\screenshots\splash.png" width="150px">
       <img alt="Home" style="margin-right: 10px"src="assets\screenshots\home.png" width="150px">
       <img alt="Result" style="margin-right: 10px"src="assets\screenshots\result.png" width="150px">
+      <img alt="Details" style="margin-right: 10px"src="assets\screenshots\details.png" width="150px">
     </p>
 </p>
 
