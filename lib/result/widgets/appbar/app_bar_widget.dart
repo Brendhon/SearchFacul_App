@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:search_facul/core/app_colors.dart';
-import 'package:search_facul/core/app_gradients.dart';
-import 'package:search_facul/core/app_images.dart';
-import 'package:search_facul/core/app_text_styles.dart';
+import 'package:search_facul/core/core.dart';
 
 class AppBarWidget extends PreferredSize {
   AppBarWidget()
