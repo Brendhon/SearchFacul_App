@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:search_facul/home/home_page.dart';
+
 import '../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,11 +20,18 @@ class _SplashPageState extends State<SplashPage> {
   static const time = Duration(milliseconds: 600);
 
   // Métodos
-  void run() =>
-      setState(() => value == minValue ? value = maxValue : value = minValue);
+  void run() => {
+        if (mounted)
+          setState(
+              () => value == minValue ? value = maxValue : value = minValue)
+      };
 
   @override
   void initState() {
+    // Aguardar alguns segundos e navegar para Home
+    Future.delayed(Duration(seconds: 6)).then((_) => Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => HomePage())));
+
     if (mounted) Timer.periodic(time, (Timer t) => run());
     super.initState();
   }

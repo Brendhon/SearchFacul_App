@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:search_facul/core/core.dart';
+import 'package:search_facul/result/result_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -28,7 +29,8 @@ class _HomePageState extends State<HomePage> {
   // Métodos
   void setInputText(String str) => setState(() => inputText = str);
   void setOption(value) => setState(() => option = value.toString());
-  void sendValues() => print('option: $option\ninputText: $inputText');
+  void sendValues() => Navigator.push(
+      context, MaterialPageRoute(builder: (context) => ResultPage()));
 
   @override
   Widget build(BuildContext context) {

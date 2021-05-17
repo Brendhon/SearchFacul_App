@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:search_facul/core/app_colors.dart';
 import 'package:search_facul/core/app_text_styles.dart';
+import 'package:search_facul/details/details_page.dart';
 import 'package:search_facul/result/widgets/appbar/app_bar_widget.dart';
 import 'package:search_facul/result/widgets/card/card_widget.dart';
 
@@ -10,6 +11,10 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
+  // Métodos
+  void navigate() => Navigator.push(
+      context, MaterialPageRoute(builder: (context) => DetailsPage()));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +48,12 @@ class _ResultPageState extends State<ResultPage> {
                     crossAxisCount: 2,
                     childAspectRatio: 0.85,
                     children: [
-                      CardWidget(),
-                      CardWidget(), 
-                      CardWidget(),
-                      CardWidget(),
-                      CardWidget(),
-                      CardWidget(),
+                      CardWidget(onTap: navigate),
+                      CardWidget(onTap: navigate),
+                      CardWidget(onTap: navigate),
+                      CardWidget(onTap: navigate),
+                      CardWidget(onTap: navigate),
+                      CardWidget(onTap: navigate),
                     ],
                   ),
                 ),
