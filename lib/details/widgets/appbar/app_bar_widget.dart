@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:search_facul/core/core.dart';
+import 'package:search_facul/result/result_page.dart';
+import 'package:search_facul/shared/models/course_model.dart';
 
 class AppBarWidget extends PreferredSize {
-  AppBarWidget()
+  // Atributo
+  CourseModel course;
+
+  // Construtor
+  AppBarWidget({required this.course})
       : super(
           preferredSize: Size.fromHeight(180),
           child: Container(
@@ -23,12 +28,12 @@ class AppBarWidget extends PreferredSize {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Inatel',
+                        course.ies,
                         style: AppTextStyles.headingWhite40,
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        'Engenharia da computação',
+                        course.name,
                         style: AppTextStyles.bodyWhite20,
                         overflow: TextOverflow.clip,
                       ),

@@ -44,6 +44,7 @@ class DetailWidget extends StatelessWidget {
                   content,
                   style: AppTextStyles.body16,
                   overflow: TextOverflow.clip,
+                  textAlign: TextAlign.justify,
                 ),
               )
             else

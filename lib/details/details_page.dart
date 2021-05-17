@@ -1,30 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:search_facul/core/core.dart';
 import 'package:search_facul/details/widgets/appbar/app_bar_widget.dart';
 import 'package:search_facul/details/widgets/detail/detail_widget.dart';
-import 'package:search_facul/core/core.dart';
-// import 'package:url_launcher/url_launcher.dart';
-
-// _launchURL() async {
-//   const url = 'https://flutter.io';
-//   if (await canLaunch(url)) {
-//     await launch(url);
-//   } else {
-//     throw 'Could not launch $url';
-//   }
-// }
+import 'package:search_facul/result/result_page.dart';
+import 'package:search_facul/shared/models/course_model.dart';
 
 class DetailsPage extends StatelessWidget {
   // Atributos
   final double iconSize = 25;
   final Color iconColor = AppColors.secondary;
   final double boxShadowOpacity = 0.3;
+  CourseModel course;
+
+  DetailsPage({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
 
   // Métodos
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget(),
+        appBar: AppBarWidget(course: course,),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -57,20 +56,20 @@ class DetailsPage extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text('Presencial', style: AppTextStyles.body16),
+                                Text(course.modality, style: AppTextStyles.body16),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(Icons.query_builder,
                                         size: 16, color: iconColor),
                                     SizedBox(width: 5),
-                                    Text('5 anos', style: AppTextStyles.body16),
+                                    Text('${course.duration} anos', style: AppTextStyles.body16),
                                   ],
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text('4', style: AppTextStyles.body16),
+                                    Text(course.score.toString(), style: AppTextStyles.body16),
                                     SizedBox(width: 5),
                                     Icon(Icons.star,
                                         size: 16, color: iconColor),
@@ -85,20 +84,19 @@ class DetailsPage extends StatelessWidget {
                         ),
                         DetailWidget(
                           title: 'Grau acadêmico',
-                          content: 'Bacharelado',
+                          content: course.titration,
                           icon: Icon(Icons.school,
                               size: iconSize, color: iconColor),
                         ),
                         DetailWidget(
                           title: 'Turno',
-                          content: 'Integral',
+                          content: course.period,
                           icon: Icon(Icons.wb_sunny,
                               size: iconSize, color: iconColor),
                         ),
                         DetailWidget(
                           title: 'Descrição',
-                          content:
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+                          content: course.description,
                           icon: Icon(Icons.description,
                               size: iconSize, color: iconColor),
                         ),
@@ -135,7 +133,7 @@ class DetailsPage extends StatelessWidget {
                             Text('Universidade',
                                 style: AppTextStyles.bodyBold25),
                             SizedBox(height: 5),
-                            Text('Particular', style: AppTextStyles.body16),
+                            Text(course.category, style: AppTextStyles.body16),
                           ],
                         )),
                         SizedBox(
@@ -143,20 +141,20 @@ class DetailsPage extends StatelessWidget {
                         ),
                         DetailWidget(
                           title: 'Email',
-                          content: 'inatel@inatel.com',
+                          content: course.email,
                           icon: Icon(Icons.mail,
                               size: iconSize, color: iconColor),
                         ),
                         DetailWidget(
                           title: 'Telefone',
-                          content: '3534719200',
+                          content: course.telephone,
                           icon: Icon(Icons.phone,
                               size: iconSize, color: iconColor),
                         ),
                         DetailWidget(
                           title: 'Endereço',
                           content:
-                              'Av. João de Camargo, 510 - Centro, Santa Rita do Sapucaí - MG',
+                              '${course.address}, ${course.city} - ${course.uf}',
                           icon: Icon(Icons.place,
                               size: iconSize, color: iconColor),
                         ),

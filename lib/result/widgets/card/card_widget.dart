@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:search_facul/core/app_colors.dart';
 import 'package:search_facul/core/app_text_styles.dart';
+import 'package:search_facul/shared/models/course_model.dart';
 
 class CardWidget extends StatelessWidget {
   // Atributos
@@ -11,10 +12,12 @@ class CardWidget extends StatelessWidget {
   final Color headerColor = AppColors.darkBlue;
   final Color backColor = AppColors.white;
   final VoidCallback onTap;
+  CourseModel course;
 
   CardWidget({
     Key? key,
     required this.onTap,
+    required this.course,
   }) : super(key: key);
 
   // Métodos
@@ -52,15 +55,15 @@ class CardWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 25, right: 2),
                   child: Column(
                     children: [
-                      Text('INATEL', style: AppTextStyles.bodybold18),
-                      Text('Privado', style: AppTextStyles.bodyWhite),
+                      Text(course.ies, style: AppTextStyles.bodybold18),
+                      Text(course.category, style: AppTextStyles.bodyWhite),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(right: 2),
                             child: Text(
-                              '4',
+                              course.score.toString(),
                               style: AppTextStyles.bodyWhite,
                             ),
                           ),
@@ -84,7 +87,7 @@ class CardWidget extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          'Engenharia da computação',
+                          course.name,
                           style: AppTextStyles.heading15,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
@@ -100,7 +103,7 @@ class CardWidget extends StatelessWidget {
                   children: [
                     Flexible(
                       child: Text(
-                        'O curso de Engenharia de Computação do Inatel foi criado em 2004 e, desde então, forma profissionais cada vez mais essenciais para o mercado de Tecnologia da Informação e Comunicação.',
+                        course.description,
                         style: AppTextStyles.body,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 3,
