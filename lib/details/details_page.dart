@@ -23,7 +23,9 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget(course: course,),
+        appBar: AppBarWidget(
+          course: course,
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -56,25 +58,29 @@ class DetailsPage extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text(course.modality, style: AppTextStyles.body16),
+                                Text(course.modality,
+                                    style: AppTextStyles.body16),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(Icons.query_builder,
                                         size: 16, color: iconColor),
                                     SizedBox(width: 5),
-                                    Text('${course.duration} anos', style: AppTextStyles.body16),
+                                    Text('${course.duration} anos',
+                                        style: AppTextStyles.body16),
                                   ],
                                 ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(course.score.toString(), style: AppTextStyles.body16),
-                                    SizedBox(width: 5),
-                                    Icon(Icons.star,
-                                        size: 16, color: iconColor),
-                                  ],
-                                ),
+                                if (course.score != -1)
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(course.score.toString(),
+                                          style: AppTextStyles.body16),
+                                      SizedBox(width: 5),
+                                      Icon(Icons.star,
+                                          size: 16, color: iconColor),
+                                    ],
+                                  ),
                               ],
                             ),
                           ],

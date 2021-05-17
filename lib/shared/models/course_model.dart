@@ -29,7 +29,7 @@ class CourseModel {
     required this.uf,
     required this.address,
     required this.category,
-    this.score = 0,
+    this.score = -1,
     this.site = '',
   });
 }

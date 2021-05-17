@@ -4,6 +4,7 @@ import 'package:search_facul/core/app_colors.dart';
 import 'package:search_facul/core/app_text_styles.dart';
 import 'package:search_facul/shared/models/course_model.dart';
 
+// ignore: must_be_immutable
 class CardWidget extends StatelessWidget {
   // Atributos
   final double borderRadius = 5;
@@ -57,23 +58,26 @@ class CardWidget extends StatelessWidget {
                     children: [
                       Text(course.ies, style: AppTextStyles.bodybold18),
                       Text(course.category, style: AppTextStyles.bodyWhite),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 2),
-                            child: Text(
-                              course.score.toString(),
-                              style: AppTextStyles.bodyWhite,
+                      if (course.score != -1)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 2),
+                              child: Text(
+                                course.score.toString(),
+                                style: AppTextStyles.bodyWhite,
+                              ),
                             ),
-                          ),
-                          Icon(
-                            CupertinoIcons.star_fill,
-                            size: 12,
-                            color: AppColors.white,
-                          ),
-                        ],
-                      )
+                            Icon(
+                              CupertinoIcons.star_fill,
+                              size: 12,
+                              color: AppColors.white,
+                            ),
+                          ],
+                        )
+                      else
+                        SizedBox(width: MediaQuery.of(context).size.width,)
                     ],
                   ),
                 ),
