@@ -61,7 +61,7 @@ class CourseModel {
       description: map['description'],
       titration: map['titration'],
       duration: map['duration'],
-      score: map['score'],
+      score: map['score'] != null ? map['score'] : -1,
       modality: map['modality'],
       period: map['period'],
       ies: map['ies'],
@@ -71,7 +71,7 @@ class CourseModel {
       uf: map['uf'],
       address: map['address'],
       category: map['category'],
-      site: map['site'],
+      site: map['site'] != null ? map['site'] : '',
     );
   }
 
