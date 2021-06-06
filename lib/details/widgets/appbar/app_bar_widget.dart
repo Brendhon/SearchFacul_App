@@ -28,7 +28,7 @@ class AppBarWidget extends PreferredSize {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        course.ies,
+                        course.ies.toUpperCase(),
                         style: AppTextStyles.headingWhite40,
                         overflow: TextOverflow.ellipsis,
                       ),

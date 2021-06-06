@@ -56,7 +56,7 @@ class CardWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 25, right: 2),
                   child: Column(
                     children: [
-                      Text(course.ies, style: AppTextStyles.bodybold18),
+                      Text(course.ies.toUpperCase(), style: AppTextStyles.bodybold18),
                       Text(course.category, style: AppTextStyles.bodyWhite),
                       if (course.score != -1)
                         Row(
