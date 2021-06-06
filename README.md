@@ -2,7 +2,7 @@
 <h1 align="center">
     <img align="center" src="assets\images\logo.svg" width="300px;" alt="logo"/>
 </h1>
-<h3 align="center">👷 Em desenvolvimento 👷</h3>
+<h3 align="center">✅ Concluído ✅</h3>
 
 ## 🎓 Sobre o projeto
 
@@ -58,7 +58,6 @@ Antes de começar, você vai precisar ter instalado em sua máquina um emulador 
 
 Recomendações:
 * Um editor para trabalhar com o código como **[VSCode](https://code.visualstudio.com/)**;
-* Usar o próprio celular para depuração USB, evitando assim maior processamento do computador utilizado.
 
 ```bash
 
