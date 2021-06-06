@@ -25,7 +25,8 @@ As seguintes tecnologias foram utilizadas na construção do projeto:
  - **[Flutter](https://flutter.dev/)**
  - **[Cupertino Icons](https://pub.dev/packages/cupertino_icons)**
  - **[Google Fonts](https://pub.dev/packages/google_fonts)**
- - **[Flutter Svg ](https://pub.dev/packages/flutter_svg)**
+ - **[Flutter Svg](https://pub.dev/packages/flutter_svg)**
+ - **[Dio](https://pub.dev/packages/dio)**
 
 > Veja o arquivo  **[pubspec.yaml](https://github.com/Brendhon/SearchFacul_App/blob/main/pubspec.yaml)**
 
