@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class CourseModel {
   final String name;
   final String description;
@@ -32,4 +34,48 @@ class CourseModel {
     this.score = -1,
     this.site = '',
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'description': description,
+      'titration': titration,
+      'duration': duration,
+      'score': score,
+      'modality': modality,
+      'period': period,
+      'ies': ies,
+      'email': email,
+      'city': city,
+      'telephone': telephone,
+      'uf': uf,
+      'address': address,
+      'category': category,
+      'site': site,
+    };
+  }
+
+  factory CourseModel.fromMap(Map<String, dynamic> map) {
+    return CourseModel(
+      name: map['name'],
+      description: map['description'],
+      titration: map['titration'],
+      duration: map['duration'],
+      score: map['score'],
+      modality: map['modality'],
+      period: map['period'],
+      ies: map['ies'],
+      email: map['email'],
+      city: map['city'],
+      telephone: map['telephone'],
+      uf: map['uf'],
+      address: map['address'],
+      category: map['category'],
+      site: map['site'],
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory CourseModel.fromJson(String source) => CourseModel.fromMap(json.decode(source));
 }

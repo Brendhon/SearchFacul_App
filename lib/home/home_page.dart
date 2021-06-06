@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:search_facul/core/core.dart';
 import 'package:search_facul/result/result_page.dart';
+import 'package:search_facul/shared/models/course_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,25 +12,32 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // Atributos
   double borderRadius = 5;
+  bool empty = false;
   String inputText = '';
-  String option = 'Cursos';
+  String option = 'name';
   List<DropdownMenuItem<String>> options = [
     DropdownMenuItem<String>(
         child: Text('Cursos', style: AppTextStyles.bodyWhite15),
-        value: 'Cursos'),
+        value: 'name'),
     DropdownMenuItem<String>(
         child: Text('Faculdades', style: AppTextStyles.bodyWhite15),
-        value: 'Faculdades'),
+        value: 'ies'),
     DropdownMenuItem<String>(
         child: Text('Cidades', style: AppTextStyles.bodyWhite15),
-        value: 'Cidades'),
+        value: 'city'),
   ];
 
   // Métodos
+  void checkEmpty() => setState(() => empty = true);
   void setInputText(String str) => setState(() => inputText = str);
   void setOption(value) => setState(() => option = value.toString());
   void sendValues() => Navigator.push(
-      context, MaterialPageRoute(builder: (context) => ResultPage()));
+      context,
+      MaterialPageRoute(
+          builder: (context) => ResultPage(
+                value: inputText,
+                option: option,
+              )));
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +63,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(
                       height: 15,
+                    ),
+                    if (empty && inputText == '') Padding(
+                      padding: const EdgeInsets.only(bottom: 3),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Digite algo para pesquisar',
+                            style: AppTextStyles.error,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -102,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     TextButton(
-                      onPressed: sendValues,
+                      onPressed: inputText != '' ? sendValues : checkEmpty,
                       child: Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(

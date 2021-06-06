@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:search_facul/core/app_colors.dart';
 import 'package:search_facul/core/app_text_styles.dart';
@@ -6,33 +7,48 @@ import 'package:search_facul/result/widgets/appbar/app_bar_widget.dart';
 import 'package:search_facul/result/widgets/card/card_widget.dart';
 import 'package:search_facul/shared/models/course_model.dart';
 
+// Estrutura basica das requisições
+BaseOptions options = new BaseOptions(
+  baseUrl: "http://localhost:3333",
+  connectTimeout: 5000,
+);
+
 class ResultPage extends StatefulWidget {
+  final String value;
+  final String option;
+  List<CourseModel> courses = <CourseModel>[];
+
+  ResultPage({Key? key, required this.value, required this.option})
+      : super(key: key);
+
   @override
   _ResultPageState createState() => _ResultPageState();
 }
 
-CourseModel course = CourseModel(
-  name: 'Engenharia de computação',
-  ies: 'INATEL',
-  city: 'Santa Rita do Sapucaí',
-  uf: 'MG',
-  address: 'Av. João de Camargo, 510 - Centro',
-  period: 'Integral',
-  category: 'Privada',
-  description:
-      'O curso de Engenharia de Computação do Inatel foi criado em 2004 e, desde então, forma profissionais cada vez mais essenciais para o mercado de Tecnologia da Informação e Comunicação.',
-  duration: 5,
-  score: 4,
-  site: 'https://inatel.br/home/',
-  email: 'inatel@inatel.br',
-  modality: 'Presencial',
-  telephone: '3534719200',
-  titration: 'Bacharelado',
-);
-
-List<CourseModel> courses = [course, course, course, course];
-
 class _ResultPageState extends State<ResultPage> {
+  @override
+  void initState() {
+    super.initState();
+    this.getCourses();
+  }
+
+  Future<void> getCourses() async {
+    List<CourseModel> auxCourse =
+        <CourseModel>[]; // Recebe os valores da requisição
+
+    // Realiza a requisição
+    Response response = await Dio(options)
+        .get("/course/search/${widget.option}?text=${widget.value}");
+
+    // Pesquisa seja válida
+    if (response.statusCode == 200) {
+      for (var item in response.data.toList()) // Varrendo o array da resposta
+        auxCourse.add(new CourseModel.fromMap(item));
+      setState(
+          () => widget.courses = auxCourse); // Setando os valores no estado
+    }
+  }
+
   // Métodos
   void navigate(e) => Navigator.push(
       context, MaterialPageRoute(builder: (context) => DetailsPage(course: e)));
@@ -49,7 +65,7 @@ class _ResultPageState extends State<ResultPage> {
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               children: [
-                Padding(
+                if(widget.courses.length != 0) Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -59,20 +75,45 @@ class _ResultPageState extends State<ResultPage> {
                           style: AppTextStyles.body,
                           children: [
                             TextSpan(
-                                text: '${courses.length}',
+                                text: '${widget.courses.length}',
                                 style: AppTextStyles.bodyBold)
                           ])),
                     ],
                   ),
                 ),
+                if (widget.courses.length == 0)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 50),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Sinto Muito!',
+                          style: AppTextStyles.heading40,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'Nenhum resultado para sua pesquisa.',
+                          style: AppTextStyles.body20,
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Icon(Icons.sentiment_dissatisfied,
+                            size: 50, color: AppColors.darkBlue),
+                      ],
+                    ),
+                  ),
                 Expanded(
                   child: GridView.count(
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
                     crossAxisCount: 2,
                     childAspectRatio: 0.85,
-                    children: courses
-                        .map((e) => CardWidget(onTap: () => navigate(e), course: e))
+                    children: widget.courses
+                        .map((e) =>
+                            CardWidget(onTap: () => navigate(e), course: e))
                         .toList(),
                   ),
                 ),
